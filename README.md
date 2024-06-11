@@ -1,11 +1,12 @@
 # 自動評価スクリプト(Gemini対応)
 
-評価者のLLMを指定して、言語モデルの応答を自動評価するスクリプト。
-評価者にGeminiを追加し、無料で評価可能にしました。
+評価者のLLMを指定して、言語モデルの応答を自動評価するスクリプト。  
+評価者にGemini 1.5 Proを追加し、無料で評価可能にしました。
 
 ## 対応する言語モデル
 
-評価者のLLMとして、下記のモデルを選択できる。モデル名は `JUDGE` 環境変数で指定する。
+評価者のLLMとして、下記のモデルを選択できる。  
+モデル名は `JUDGE` 環境変数で指定する。
 
 * `google/gemini-pro`: Google Gemini 1.5 Pro API
 * `openai/gpt-4`: OpenAI GPT-4 Turbo API
@@ -17,13 +18,13 @@
 ### LLM によるテキスト生成
 
 #### 方法1
-`notebooks` ディレクトリ配下にあるノートブックを実行することで、評価対象のLLMに ELYZA-tasks-100 データセットの各質問に対する回答が生成できる。
-ノートブックは、[Google Colaboratory](https://colab.research.google.com/) などで実行可能。
-
+`notebooks` ディレクトリ配下にあるノートブックを実行することで、評価対象のLLMに ELYZA-tasks-100 データセットの各質問に対する回答が生成できる。  
+ノートブックは、[Google Colaboratory](https://colab.research.google.com/) などで実行可能。  
+  
 生成されたテキストは `preds.jsonl` という名前の JSONL ファイルに書き出される。
-このファイルをダウンロードする。
+このファイルをダウンロードする。  
 
-####方法2
+#### 方法2
 `tools`ディレクトリ配下にある`generation.py`を実行することで、データセットの各質問に対する回答が生成できる。
 生成されたテキストは `assets/{指定データセット}/preds.jsonl` という名前の JSONL ファイルに書き出される。
 
@@ -36,7 +37,7 @@ $ python generation.py
 
 ### 評価の準備
 
-下記のように、`assets/<DATASET_NAME>` にデータセット・LLMの応答を JSONL 形式で配置する。
+下記のように、`assets/<DATASET_NAME>` にデータセット・LLMの応答を JSONL 形式で配置する。  
 （フォーマットの詳細は `assets/test` を参照）
 
 `dataset.jsonl` は `assets/elyza_tasks_100` からハードリンク（またはコピー）する。
@@ -49,7 +50,7 @@ assets/<DATASET_NAME>/
 
 ### 評価
 
-####Gemini を使う場合
+#### Gemini を使う場合
 
 Gemini API キーを発行し ([link](https://makersuite.google.com/app/prompts/new_freeform))、 `secrets/GEMINI_API_KEY` に置く (行末は**改行しない**)。
 
