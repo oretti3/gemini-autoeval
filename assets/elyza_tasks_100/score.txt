@@ -1,0 +1,9 @@
+File: result1.jsonl
+Total number of grades: 100
+Average grade: 3.34
+Grade counts:
+  Grade 1: 16 occurrences
+  Grade 2: 10 occurrences
+  Grade 3: 25 occurrences
+  Grade 4: 22 occurrences
+  Grade 5: 27 occurrences

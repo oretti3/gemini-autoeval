@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  gpt4eval:
+    build: .
+    volumes:
+      - ./assets:/opt/gemini-autoeval/assets
+    secrets:
+      - OPENAI_API_KEY
+      - COHERE_API_KEY
+      - GEMINI_API_KEY
+    environment:
+      - DATASET_NAME
+      - JUDGE
+      - PROCESS_MODE
+      - BATCH_TASK
+
+secrets:
+  OPENAI_API_KEY:
+    file: ./secrets/OPENAI_API_KEY
+  COHERE_API_KEY:
+    file: ./secrets/COHERE_API_KEY
+  GEMINI_API_KEY:
+    file: ./secrets/GEMINI_API_KEY

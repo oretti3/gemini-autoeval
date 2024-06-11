@@ -1,0 +1,13 @@
+
+services:
+  app:
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - ../../../:/app
+    shm_size: 8g
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
